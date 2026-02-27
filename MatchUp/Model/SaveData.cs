@@ -1,17 +1,11 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using MatchUp.Utilities;
 using System.IO;
-using System.Linq;
-using System.Text;
 using System.Text.Json;
 using System.Text.Json.Serialization;
-using System.Threading.Tasks;
-using System.Windows;
-using MatchUp.Utilities;
 
 namespace MatchUp.Model
 {
-    class SaveData
+    public class SaveData
     {
         private static readonly string DirectoryPath = Path.Combine(Directory.GetCurrentDirectory(), "Data");
         private static readonly string FilePath = Path.Combine(DirectoryPath, "saved_data.json");
@@ -30,6 +24,8 @@ namespace MatchUp.Model
 
         [JsonPropertyName("Time")]
         public string Time { get; set; }
+
+        public SaveData() { }
 
         public SaveData(string name, DateTime date, int amountOfCards, int amountOfAttempts, string time)
         {

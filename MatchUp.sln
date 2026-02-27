@@ -1,9 +1,11 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
-VisualStudioVersion = 17.13.35825.156 d17.13
+VisualStudioVersion = 17.13.35825.156
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MatchUp", "MatchUp\MatchUp.csproj", "{24922E96-2A80-43CA-A2FD-9AC9AEA64599}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MatchUpTests", "MatchUpTests\MatchUpTests.csproj", "{26CEBA07-D686-4AD4-9B3D-95B54B4D6C86}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -15,6 +17,10 @@ Global
 		{24922E96-2A80-43CA-A2FD-9AC9AEA64599}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{24922E96-2A80-43CA-A2FD-9AC9AEA64599}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{24922E96-2A80-43CA-A2FD-9AC9AEA64599}.Release|Any CPU.Build.0 = Release|Any CPU
+		{26CEBA07-D686-4AD4-9B3D-95B54B4D6C86}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{26CEBA07-D686-4AD4-9B3D-95B54B4D6C86}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{26CEBA07-D686-4AD4-9B3D-95B54B4D6C86}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{26CEBA07-D686-4AD4-9B3D-95B54B4D6C86}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

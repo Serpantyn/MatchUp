@@ -1,12 +1,7 @@
 ﻿using MatchUp.Model;
 using MatchUp.Utilities;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Input;
 using System.Windows;
+using System.Windows.Input;
 using Top.Utilities;
 
 namespace MatchUp.ViewModel
@@ -29,7 +24,6 @@ namespace MatchUp.ViewModel
             name = game.Name;
         }
 
-        // Метод перевірки можливості скасування дії (завжди true)
         private bool CanCancel(object arg) => true;
 
         private void Continue(object obj)

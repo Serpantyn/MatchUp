@@ -1,17 +1,8 @@
-﻿using MatchUp.Utilities;
-using Microsoft.Win32;
-using System;
-using System.Collections.Generic;
-using System.Collections.ObjectModel;
-using System.IO;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Input;
+﻿using MatchUp.Model;
+using MatchUp.Utilities;
 using System.Windows;
+using System.Windows.Input;
 using Top.Utilities;
-using MatchUp.Model;
-using System.Windows.Controls;
 
 namespace MatchUp.ViewModel
 {
@@ -24,7 +15,7 @@ namespace MatchUp.ViewModel
             set
             {
                 _selectedCardCount = value;
-                OnPropertyChanged(nameof(SelectedCardCount)); // Сповіщаємо UI про зміну
+                OnPropertyChanged(nameof(SelectedCardCount));
             }
         }
 
@@ -42,12 +33,8 @@ namespace MatchUp.ViewModel
             }
         }
 
-
-        // Команди для збереження та скасування дій
         public ICommand CancelCommand { get; set; }
         public ICommand ContinueCommand { get; set; }
-
-        // Доступні опції для активності кнопки
         public List<int> Options { get; set; }
         private string Name;
 
@@ -62,10 +49,8 @@ namespace MatchUp.ViewModel
             Name = name;
         }
 
-        // Метод перевірки можливості скасування дії (завжди true)
         private bool CanCancel(object arg) => true;
 
-        // Метод для скасування дії та закриття вікна
         private void Cancel(object obj)
         {
             if (obj is Window window)

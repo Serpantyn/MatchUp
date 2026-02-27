@@ -1,12 +1,7 @@
 ﻿using MatchUp.Model;
 using MatchUp.Utilities;
 using MatchUp.View;
-using System;
-using System.Collections.Generic;
 using System.Collections.ObjectModel;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Input;
 using System.Windows.Threading;
@@ -97,10 +92,8 @@ namespace MatchUp.ViewModel
             }
         }
 
-
-
         public Game currentGame;
-        private bool isProcessing = false;  // Для блокування кліків
+        private bool isProcessing = false; 
 
         public ObservableCollection<Card> Cards { get; }
 
@@ -109,12 +102,10 @@ namespace MatchUp.ViewModel
 
         public MainVM(Game game)
         {
-            // Ініціалізація команд
             PauseCommand = new RelayCommand(Pause, CanShowWindow);
             OpenCardCommand = new RelayCommand(OpenCard, CanShowWindow);
             currentGame = game;
 
-            // Конвертація List<Card> в ObservableCollection<Card> для автоматичного оновлення UI
             Cards = new ObservableCollection<Card>(game.cardsCollection.Cards);
             Attempts = "0";
             Time = "0:00";
@@ -122,11 +113,11 @@ namespace MatchUp.ViewModel
 
             if (currentGame.IsTimer)
             {
-                StartCountdownTimer();  // Запуск зворотного таймера, якщо є таймер
+                StartCountdownTimer();
             }
             else
             {
-                StartTimer();  // Звичайний таймер
+                StartTimer();
             }
 
             if (currentGame.cardsCollection.amountOfCards == 10)
@@ -165,7 +156,7 @@ namespace MatchUp.ViewModel
         private void Timer_Tick(object sender, EventArgs e)
         {
             secondsElapsed++;
-            Time = $"{secondsElapsed / 60}:{secondsElapsed % 60:D2}"; // Формат хв:сек
+            Time = $"{secondsElapsed / 60}:{secondsElapsed % 60:D2}";
         }
 
         private void StopTimer()
@@ -190,7 +181,7 @@ namespace MatchUp.ViewModel
             if (countdownSeconds > 0)
             {
                 countdownSeconds--;
-                Time = $"{countdownSeconds / 60}:{countdownSeconds % 60:D2}"; // Формат хв:сек
+                Time = $"{countdownSeconds / 60}:{countdownSeconds % 60:D2}";
             }
             else
             {
@@ -200,13 +191,11 @@ namespace MatchUp.ViewModel
             }
         }
 
-        // Функція що показує що вікно можна показувати в будь-який момент.
         private bool CanShowWindow(object arg)
         {
             return true;
         }
 
-        // Відкриває вікно фільтрації кнопок.
         private void Pause(object obj)
         {
             timer.Stop();
@@ -215,28 +204,25 @@ namespace MatchUp.ViewModel
             timer.Start();
         }
 
-
-        // Функція, яка реалізує логіку відкриття картки
         private async void OpenCard(object parameter)
         {
-            if (isProcessing) return;  // Якщо зараз обробляється пара карток, клік ігнорується
+            if (isProcessing) return;
 
             if (parameter is Card card && !card.IsOpen)
             {
                 isProcessing = true;
 
-                card.IsOpen = !card.IsOpen;  // Перемикаємо стан картки
+                card.IsOpen = !card.IsOpen; 
 
-                currentGame.currentPair.Push(card);  // Додаємо картку в стек
+                currentGame.currentPair.Push(card);
 
                 if (currentGame.currentPair.Count == 2)
                 {
-                    var opened = currentGame.currentPair.ToList();  // Беремо останні дві картки з стека
+                    var opened = currentGame.currentPair.ToList();
 
-                    // Перевірка на співпадіння карток
                     if (opened[0] != opened[1])
                     {
-                        await Task.Delay(1000);  // Затримка перед закриттям карток
+                        await Task.Delay(1000);
 
                         opened.ForEach(card => card.IsOpen = false);
                     }
