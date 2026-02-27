@@ -25,19 +25,19 @@ The game is developed in .NET WPF using the MVVM pattern.
 ## Screenshots
 
 ### 🏠 Start Screen
-![Start](screenshots/start.png)
+<img src="screenshots/start.png" width="250" alt="Start" />
 
 ### 🎮 Game Mode Selection
-![Mode](screenshots/mode.png)
+<img src="screenshots/mode.png" width="250" alt="Mode" />
 
 ### 🧩 Gameplay
-![Gameplay](screenshots/gameplay.png)
+<img src="screenshots/gameplay.png" width="250" alt="Gameplay" />
 
 ### 🏆 Victory Screen
-![Victory](screenshots/victory.png)
+<img src="screenshots/victory.png" width="250" alt="Victory" />
 
 ### ❌ Defeat Screen
-![Defeat](screenshots/defeat.png)
+<img src="screenshots/defeat.png" width="250" alt="Defeat" />
 
 ### 📊 Game History
-![History](screenshots/history.png)
+<img src="screenshots/history.png" width="250" alt="History" />
